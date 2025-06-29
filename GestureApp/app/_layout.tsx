@@ -1,9 +1,11 @@
+import { GameProvider } from "@/context/GestureActionsContext";
 import { RootStackParamList } from "@/types/RootStackParamList";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
+import TasksScreen from "./tasks";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -31,12 +33,14 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
     return (
-        <Stack.Navigator
-            initialRouteName="Home"
-            screenOptions={{ headerShown: false }}
-        >
-            <Stack.Screen name="Home" />
-            <Stack.Screen name="Tasks" />
-        </Stack.Navigator>
+        <GameProvider>
+            <Stack.Navigator
+                initialRouteName="Tasks"
+                screenOptions={{ headerShown: false }}
+            >
+                {/* <Stack.Screen name="Home" /> */}
+                <Stack.Screen name="Tasks" component={TasksScreen} />
+            </Stack.Navigator>
+        </GameProvider>
     );
 }
