@@ -6,6 +6,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import TasksScreen from "./tasks";
+import HomeScreen from "../app/index";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -35,10 +36,10 @@ function RootLayoutNav() {
     return (
         <GameProvider>
             <Stack.Navigator
-                initialRouteName="Tasks"
+                initialRouteName="Home"
                 screenOptions={{ headerShown: false }}
             >
-                {/* <Stack.Screen name="Home" /> */}
+                <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Tasks" component={TasksScreen} />
             </Stack.Navigator>
         </GameProvider>
