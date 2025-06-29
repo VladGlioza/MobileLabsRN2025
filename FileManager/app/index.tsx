@@ -34,7 +34,11 @@ const ExplorerScreen: React.FC<Props> = ({ navigation, route }) => {
     }, [currentPath]);
 
     const handleItemPress = (item: any) => {
-        return;
+        if (item.isDirectory) {
+            enterFolder(item.uri);
+        } else {
+            navigation.navigate("FileView", { uri: item.uri });
+        }
     };
 
     const handleItemLongPress = (item: any) => {
