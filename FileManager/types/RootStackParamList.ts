@@ -1,1 +1,3 @@
-export type RootStackParamList = {};
+export type RootStackParamList = {
+    Explorer: { rootDir: string; currentPath?: string };
+};

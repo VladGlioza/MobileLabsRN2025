@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/types/RootStackParamList";
 import * as FileSystem from "expo-file-system";
+import ExplorerScreen from "../app/index";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const ROOT_DIR = FileSystem.documentDirectory + "AppData/";
@@ -22,5 +23,14 @@ export default function RootLayout() {
         })();
     }, []);
 
-    return <Stack.Navigator></Stack.Navigator>;
+    return (
+        <Stack.Navigator initialRouteName="Explorer">
+            <Stack.Screen
+                name="Explorer"
+                component={ExplorerScreen}
+                options={{ title: "Файловий менеджер" }}
+                initialParams={{ rootDir: ROOT_DIR }}
+            />
+        </Stack.Navigator>
+    );
 }
