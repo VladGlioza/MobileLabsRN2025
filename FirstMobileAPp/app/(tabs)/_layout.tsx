@@ -26,6 +26,14 @@ export default function TabLayout() {
                     ),
                 }}
             />
+            <Tabs.Screen
+                name="Галерея"
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <TabBarIcon name="code" color={color} />
+                    ),
+                }}
+            />
         </Tabs>
     );
 }

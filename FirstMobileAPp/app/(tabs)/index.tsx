@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
-import Header from "../../components/Header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const mockNews = Array(8).fill({
     title: "Заголовок новини",
@@ -17,11 +18,11 @@ export default function HomeScreen() {
                 keyExtractor={(_, idx) => idx.toString()}
                 renderItem={({ item }) => (
                     <View style={styles.newsItem}>
-                        {/* <Image
-                            source={require("../../assets/news-placeholder.png")}
+                        <Image
+                            source={require("../../assets/images/placeholder.png")}
                             style={styles.newsImage}
-                        /> */}
-                        <View>
+                        />
+                        <View style={{ marginBottom: 15 }}>
                             <Text style={styles.newsTitle}>{item.title}</Text>
                             <Text style={styles.newsDate}>{item.date}</Text>
                             <Text>{item.text}</Text>
@@ -29,19 +30,21 @@ export default function HomeScreen() {
                     </View>
                 )}
             />
-            <Text style={styles.footer}>
-                Гльоза Владислав Віталійович, ВТ-21-1
-            </Text>
+            <Footer />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: "#fff" },
-    sectionTitle: { fontSize: 20, fontWeight: "bold", margin: 10 },
-    newsItem: { flexDirection: "row", margin: 10 },
-    newsImage: { width: 50, height: 50, marginRight: 10 },
+    sectionTitle: {
+        fontSize: 20,
+        fontWeight: "bold",
+        textAlign: "center",
+        width: "100%",
+    },
+    newsItem: { flexDirection: "row", margin: 10, alignItems: "center" },
+    newsImage: { width: 80, height: 80, marginRight: 10 },
     newsTitle: { fontWeight: "bold" },
     newsDate: { color: "gray", fontSize: 12 },
-    footer: { textAlign: "center", fontSize: 12, marginBottom: 10 },
 });

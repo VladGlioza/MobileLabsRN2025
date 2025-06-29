@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         height: 60,
         marginTop: 20,
         marginHorizontal: 10,
-        width: "80%",
+        width: "100%",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     title: {
+        marginRight: "20%",
         fontSize: 18,
         fontWeight: "bold",
     },
